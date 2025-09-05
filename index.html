@@ -25,97 +25,758 @@
 
 
 <style>
-
-/*======================================
-//--//-->   ABOUT
-======================================*/
-
-.about-mf .box-shadow-full {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+/* AI-Themed Modern Design */
+:root {
+  --ai-primary: #00d4ff;
+  --ai-secondary: #0099cc;
+  --ai-accent: #ff6b6b;
+  --ai-dark: #0a0a0a;
+  --ai-light: #ffffff;
+  --ai-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --ai-glow: 0 0 20px rgba(0, 212, 255, 0.3);
+  --neural-bg: #0f1419;
 }
 
-.about-mf .about-img {
-  margin-bottom: 2rem;
+/* Neural Network Background Animation */
+.neural-network {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: var(--neural-bg);
+  overflow: hidden;
 }
 
-.about-mf .about-img img {
-  margin-left: 10px;
+.neural-node {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--ai-primary);
+  border-radius: 50%;
+  box-shadow: var(--ai-glow);
+  animation: pulse 2s infinite;
 }
 
+.neural-connection {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ai-primary), transparent);
+  animation: dataFlow 3s infinite;
+}
 
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes dataFlow {
+  0% { opacity: 0; transform: scaleX(0); }
+  50% { opacity: 1; transform: scaleX(1); }
+  100% { opacity: 0; transform: scaleX(0); }
+}
+
+/* AI Hero Section */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f1419 0%, #1a1a2e 50%, #16213e 100%);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(102, 126, 234, 0.1) 0%, transparent 50%);
+  animation: heroGlow 8s ease-in-out infinite;
+}
+
+@keyframes heroGlow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* AI Typing Animation */
+#typing-animation {
+  position: relative;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--ai-primary);
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+  margin: 1rem 0;
+}
+
+#typing-animation::after {
+  content: '|';
+  color: var(--ai-accent);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* AI Code Terminal Effect */
+.code-terminal {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 20px;
+  font-family: 'Courier New', monospace;
+  color: #00ff00;
+  margin: 20px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.code-terminal::before {
+  content: 'AI_ENGINEER@PORTFOLIO:~$';
+  color: var(--ai-primary);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.typing-code {
+  animation: typeCode 3s steps(40, end) infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid var(--ai-primary);
+}
+
+@keyframes typeCode {
+  0% { width: 0; }
+  50% { width: 100%; }
+  100% { width: 0; }
+}
+
+/* Enhanced Navigation */
+.navbar {
+  background: rgba(15, 20, 25, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  background: var(--ai-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+.nav-link {
+  position: relative;
+  color: var(--ai-light) !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--ai-primary);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* AI Skills Visualization */
 .skill-mf .progress {
-  /* background-color: #cde1f8; */
-  margin: .5rem 0 1.2rem 0;
-  border-radius: 0;
-  height: .7rem;
+  background: rgba(0, 212, 255, 0.1);
+  margin: 1rem 0;
+  border-radius: 25px;
+  height: 12px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
 .skill-mf .progress .progress-bar {
-  height: .7rem;
-  background-color: #ffbd39;
-}
-
-
-/* Animation styles */
-#typing-animation {
+  height: 100%;
+  background: linear-gradient(90deg, var(--ai-primary), var(--ai-secondary));
+  border-radius: 25px;
   position: relative;
-  font-size: 30px;
-  font-weight: bold;
-  color: rgb(255, 255, 255);
   overflow: hidden;
-  white-space: nowrap;
-  animation: typing 3s steps(20, end) infinite;
+  animation: skillFill 2s ease-out;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
 }
 
-#typing-animation:before {
-  content: "";
-  /* position: absolute; */
+.skill-mf .progress .progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes skillFill {
+  from { width: 0; }
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* AI Project Cards */
+.blog-entry {
+  background: rgba(15, 20, 25, 0.8);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.blog-entry::before {
+  content: '';
+  position: absolute;
   top: 0;
   left: 0;
-  width: 0;
-  height: 100%;
-  background-color: #ccc;
-  animation: typing-cursor 0.5s ease-in-out infinite;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+.blog-entry:hover::before {
+  opacity: 1;
 }
 
-@keyframes typing-cursor {
-  from {
-    width: 5px;
-  }
-  to {
-    width: 0;
-  }
+.blog-entry:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+  border-color: var(--ai-primary);
 }
-
-
-/* project image zoom effect */
 
 .zoom-effect {
   overflow: hidden;
-  transition: transform 0.3s ease-out;
+  border-radius: 15px;
+  position: relative;
 }
 
 .zoom-effect:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+}
+
+/* AI Interactive Elements */
+.ai-button {
+  background: linear-gradient(45deg, var(--ai-primary), var(--ai-secondary));
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.ai-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.ai-button:hover::before {
+  left: 100%;
+}
+
+.ai-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+}
+
+/* AI Stats Counter */
+.ai-counter {
+  background: rgba(15, 20, 25, 0.8);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.ai-counter:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2);
+  border-color: var(--ai-primary);
+}
+
+.ai-counter .number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--ai-primary);
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
 }
 
 
+
+/* Matrix Digital Rain Effect */
+.matrix-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+    width: 100%;
+  height: 100%;
+  z-index: -2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.matrix-column {
+  position: absolute;
+  top: -100%;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 14px;
+  animation: matrixFall linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes matrixFall {
+  0% { top: -100%; opacity: 1; }
+  100% { top: 100vh; opacity: 0; }
+}
+
+/* Advanced Particle System */
+.particle-system {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--ai-primary);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particleFloat 8s infinite linear;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(100px) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Interactive AI Chat Interface */
+.ai-chat-interface {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 350px;
+  height: 500px;
+  background: rgba(15, 20, 25, 0.95);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  z-index: 1001;
+  display: none;
+}
+
+.ai-chat-interface.active {
+  transform: translateY(0);
+  display: block;
+}
+
+.chat-header {
+  background: linear-gradient(45deg, var(--ai-primary), var(--ai-secondary));
+  padding: 15px;
+  border-radius: 20px 20px 0 0;
+  color: white;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-messages {
+  height: 350px;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-message {
+  background: rgba(0, 212, 255, 0.1);
+  padding: 10px 15px;
+  border-radius: 15px;
+  color: white;
+  max-width: 80%;
+  animation: messageSlide 0.3s ease;
+}
+
+.chat-message.user {
+  background: rgba(255, 107, 107, 0.2);
+  align-self: flex-end;
+}
+
+@keyframes messageSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chat-input {
+  padding: 15px;
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.chat-input input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 25px;
+  padding: 10px 20px;
+  color: white;
+  outline: none;
+}
+
+.chat-input input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* AI Chatbot Widget */
+.ai-chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(45deg, var(--ai-primary), var(--ai-secondary));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+  animation: pulseGlow 2s infinite;
+}
+
+.ai-chatbot:hover {
+  transform: scale(1.1) rotate(10deg);
+  box-shadow: 0 10px 25px rgba(0, 212, 255, 0.5);
+}
+
+.ai-chatbot::before {
+  content: '🤖';
+  font-size: 24px;
+  animation: bounce 1s infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3); }
+  50% { box-shadow: 0 5px 25px rgba(0, 212, 255, 0.6); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Interactive Resume Cards */
+.interactive-resume {
+  perspective: 1000px;
+}
+
+.resume-card {
+  background: rgba(15, 20, 25, 0.9);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 15px;
+  padding: 30px;
+  margin: 20px 0;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.resume-card:hover {
+  transform: rotateY(5deg) rotateX(5deg) translateZ(20px);
+  box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+  border-color: var(--ai-primary);
+}
+
+.resume-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 15px;
+}
+
+.resume-card:hover::before {
+  opacity: 1;
+}
+
+/* Live Code Editor */
+.code-editor {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 20px 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.code-header {
+  background: #2d2d2d;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.code-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.code-dot.red { background: #ff5f56; }
+.code-dot.yellow { background: #ffbd2e; }
+.code-dot.green { background: #27ca3f; }
+
+.code-content {
+  padding: 20px;
+  font-family: 'Courier New', monospace;
+  color: #00ff00;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+.code-line {
+  animation: typeCode 6s steps(40, end) infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid var(--ai-primary);
+}
+
+/* Holographic Effects */
+.holographic {
+  background: linear-gradient(45deg, 
+    #ff006e, #8338ec, #3a86ff, #06ffa5, #ffbe0b, #fb5607);
+  background-size: 400% 400%;
+  animation: holographicShift 3s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes holographicShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Interactive Skill Visualization */
+.skill-orb {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(var(--ai-primary) 0deg, var(--ai-primary) var(--skill-percentage, 0deg), rgba(255, 255, 255, 0.1) var(--skill-percentage, 0deg));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 20px auto;
+}
+
+.skill-orb::before {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: var(--neural-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-percentage {
+  position: absolute;
+  color: var(--ai-primary);
+  font-weight: 700;
+  font-size: 18px;
+  z-index: 1;
+}
+
+
+/* Sound Wave Visualization */
+.sound-wave {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 40px;
+  margin: 20px 0;
+}
+
+.wave-bar {
+  width: 4px;
+  background: var(--ai-primary);
+  border-radius: 2px;
+  animation: waveAnimation 1.5s ease-in-out infinite;
+}
+
+.wave-bar:nth-child(1) { animation-delay: 0s; }
+.wave-bar:nth-child(2) { animation-delay: 0.1s; }
+.wave-bar:nth-child(3) { animation-delay: 0.2s; }
+.wave-bar:nth-child(4) { animation-delay: 0.3s; }
+.wave-bar:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes waveAnimation {
+  0%, 100% { height: 10px; }
+  50% { height: 30px; }
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #typing-animation {
+    font-size: 1.8rem;
+  }
+  
+  .hero {
+    min-height: 80vh;
+  }
+  
+  .ai-timeline::before {
+    left: 20px;
+  }
+  
+  .timeline-item::before {
+    left: 10px;
+  }
+}
+
+/* Scroll Animations */
+.ftco-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.ftco-animate.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neural-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ai-gradient);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ai-primary);
+}
 </style>
 
 
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 	  
+    <!-- Advanced Visual Effects -->
+    <div class="neural-network" id="neuralNetwork"></div>
+    <div class="matrix-rain" id="matrixRain"></div>
+    <div class="particle-system" id="particleSystem"></div>
+    
+    <!-- AI Chatbot Widget -->
+    <div class="ai-chatbot" id="aiChatbot" title="Ask me about AI!"></div>
+    
+    <!-- Advanced AI Chat Interface -->
+    <div class="ai-chat-interface" id="aiChatInterface">
+      <div class="chat-header">
+        <span>🤖 AI Assistant</span>
+        <button onclick="toggleChat()" style="background: none; border: none; color: white; cursor: pointer;">✕</button>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-message">
+          Hello! I'm Vinayak's AI assistant. Ask me about his projects, skills, or experience!
+        </div>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="chatInput" placeholder="Ask me anything about Vinayak..." onkeypress="handleChatInput(event)">
+      </div>
+    </div>
 	  
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
 	    <div class="container">
@@ -128,7 +789,7 @@
 	        <ul class="navbar-nav nav ml-auto">
 	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
 	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-	          <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
+	          <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Experience</span></a></li>
 	          <li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
 	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
 	        </ul>
@@ -136,62 +797,51 @@
 	    </div>
 	  </nav>
 	  <section id="home-section" class="hero">
-		  <div class="home-slider  owl-carousel">
-	       <div class="slider-item ">
+		  <div class="home-slider owl-carousel">
+	       <div class="slider-item">
 	      	<div class="overlay"></div>
 	         <div class="container">
-	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-	          	<div class="one-third js-fullheight order-md-last img" style="background-image:none;">
+	          <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+	          	<div class="col-md-6 order-md-last img" style="background-image:none;">
 	          	 <div class="overlay"></div>
 	          	</div>
-		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-		          	<div class="text">
-		          		<span class="subheading">Hello!</span>
-			            <h1 class="mb-4 mt-3">I'm <span>Vinayak Mane</span></h1>
+		          <div class="col-md-6 d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+		          	<div class="text text-center">
+		          		<span class="subheading" style="color: rgba(0, 212, 255, 0.8); font-size: 1.2rem;">Hello! I'm</span>
+			            <h1 class="mb-4 mt-3" style="font-size: 3.5rem; font-weight: 700; color: white; text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);">Vinayak Mane</h1>
 
-						<!-- Element to contain animated typing -->
-						<span id="typing-animation"></span>
+						<!-- AI Typing Animation -->
+						<div id="typing-animation"></div>
 
-						<script>
 
-						// Initialize the typing animation
-						const typingAnimationElement = document.getElementById('typing-animation');
+						<!-- AI Code Terminal -->
+						<div class="code-editor">
+							<div class="code-header">
+								<div class="code-dot red"></div>
+								<div class="code-dot yellow"></div>
+								<div class="code-dot green"></div>
+								<span style="color: white; margin-left: 10px;">neural_network.py</span>
+							</div>
+							<div class="code-content">
+								<div class="code-line">python train_neural_net()</div>
+							</div>
+						</div>
 
-						// Create an array of typing text
-						const typingTexts = [
-						'AI Engineer  ',
-						'Student  ',
-						'Researcher   ',
-						];
-
-						// Create a function to display the typing animation for a given text
-						function playTypingAnimation(text) {
-						// Loop through each character and add it to the element
-						for (let i = 0; i < text.length; i++) {
-							setTimeout(() => {
-							typingAnimationElement.textContent += text[i];
-							}, i * 200); // Increase the delay to slow down the typing animation
-						}
-
-						// Once the animation is complete, reset the text and start over
-						setTimeout(() => {
-							typingAnimationElement.textContent = '';
-							playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
-						}, text.length * 200);
-						}
-
-						// Start the typing animation loop
-						playTypingAnimation(typingTexts[0]);
-
-						</script>
+						<!-- Sound Wave Visualization -->
+						<div class="sound-wave">
+							<div class="wave-bar"></div>
+							<div class="wave-bar"></div>
+							<div class="wave-bar"></div>
+							<div class="wave-bar"></div>
+							<div class="wave-bar"></div>
+						</div>
 
 						<br>
-						<br>
-			            <h2>An AI Engineer</h2>
-						<!-- <h2 class="d-flex" style="margin-bottom: 0">With over 5 years of experience</h2> -->
-						<!-- <br> -->
-			            <p><a href="https://www.linkedin.com/in/vinayak-mane-637698143/" class="btn btn-primary py-3 px-4">LinkedIn</a> 
-							<a href="https://github.com/Vinayakmane47" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
+			            <h2 style="color: rgba(255, 255, 255, 0.9); margin-bottom: 2rem;">Building the Future with Artificial Intelligence</h2>
+			            <p>
+							<a href="https://www.linkedin.com/in/vinayak-mane-637698143/" class="ai-button me-3" target="_blank" rel="noopener noreferrer">LinkedIn</a> 
+							<a href="https://github.com/Vinayakmane47" class="ai-button" style="background: linear-gradient(45deg, #ff6b6b, #ee5a24);" target="_blank" rel="noopener noreferrer">GitHub</a>
+						</p>
 		            </div>
 		          </div>
 	        	</div>
@@ -228,35 +878,49 @@
 								  </div>
 
 								<div class="skill-mf">
-									<p class="title-s">Skills</p>
-									<span>PYTHON</span> <span class="pull-right">80%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0"
-											aria-valuemax="100"></div>
+									<p class="title-s holographic">AI & Machine Learning Expertise</p>
+									
+									<!-- Interactive Skill Orbs -->
+									<div class="row">
+										<div class="col-md-4 text-center">
+											<div class="skill-orb" style="--skill-percentage: 342deg;">
+												<div class="skill-percentage">95%</div>
+									</div>
+											<h5 style="color: var(--ai-primary); margin-top: 10px;">Python & Deep Learning</h5>
+									</div>
+										<div class="col-md-4 text-center">
+											<div class="skill-orb" style="--skill-percentage: 324deg;">
+												<div class="skill-percentage">90%</div>
+											</div>
+											<h5 style="color: var(--ai-primary); margin-top: 10px;">Large Language Models</h5>
+										</div>
+										<div class="col-md-4 text-center">
+											<div class="skill-orb" style="--skill-percentage: 316deg;">
+												<div class="skill-percentage">88%</div>
+											</div>
+											<h5 style="color: var(--ai-primary); margin-top: 10px;">Neural Networks</h5>
+										</div>
 									</div>
 									
-									<span>GENERATIVE AI AND LLMS</span> <span class="pull-right">70%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0"
-											aria-valuemax="100"></div>
+									<div class="row mt-4">
+										<div class="col-md-4 text-center">
+											<div class="skill-orb" style="--skill-percentage: 306deg;">
+												<div class="skill-percentage">85%</div>
 									</div>
-									
-									<span>MACHINE LEARNING</span> <span class="pull-right">90%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-									
-									<span>NATURAL LANGUAGE PROCCESING (NLP)</span> <span class="pull-right">85%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-									
-									<span>SQL</span> <span class="pull-right">80%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0"
-											aria-valuemax="100"></div>
+											<h5 style="color: var(--ai-primary); margin-top: 10px;">Natural Language Processing</h5>
+								</div>
+										<div class="col-md-4 text-center">
+											<div class="skill-orb" style="--skill-percentage: 295deg;">
+												<div class="skill-percentage">82%</div>
+							</div>
+											<h5 style="color: var(--ai-primary); margin-top: 10px;">Computer Vision</h5>
+										</div>
+										<div class="col-md-4 text-center">
+											<div class="skill-orb" style="--skill-percentage: 288deg;">
+												<div class="skill-percentage">80%</div>
+											</div>
+											<h5 style="color: var(--ai-primary); margin-top: 10px;">MLOps & Cloud</h5>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -270,33 +934,23 @@
 								<h1 class="big">About</h1>
 								<h2 class="mb-4">About Me</h2>
 								
-								<p>Highly motivated and skilled Engineer with a strong foundation in Machine Learning and Deep Learning. 
-									With a proven track record of delivering end-to-end industry-level projects in Machine Learning, Deep Learning, Computer Vision, and NLP.
-									Currently, my focus lies at the cutting edge of AI technology, exploring the frontiers of Large Language Models (LLMs) and Generative AI. 
-									I'm passionate about pushing boundaries and leveraging the latest advancements to create transformative solutions</p>
+								<p>Passionate AI Engineer with expertise in building intelligent systems that solve real-world problems. 
+									Specializing in Large Language Models (LLMs), Neural Networks, and Machine Learning pipelines, I create 
+									cutting-edge AI solutions that drive innovation. Currently pursuing Master's in AI at Monash University, 
+									I combine academic rigor with practical industry experience to develop scalable AI applications.</p>
 								<ul class="about-info mt-4 px-md-0 px-2">
-									<li class="d-flex"><span>Profile:</span> <span>Generative AI &amp; Machine Learnings</span></li>
-									<!-- <li class="d-flex"><span>Domain:</span> <span>Retail, Ecommerce, BFSI &amp; Digital Marketing</span></li> -->
-									<li class="d-flex"><span>Education:</span> <span>Masters of Artificial Intelligence (pursuing)</span></li>
-									<li class="d-flex"><span>Language:</span> <span>English,Marathi , Hindi</span></li>
-									<li class="d-flex"><span>Main Skills:</span> <span>Machine Learning, Deep Learning , LLMs , NLP , Computer Vision &amp; SQL</span></li>
-									<li class="d-flex"><span>Other Skills:</span> <span>AWS, Docker, MLFLOW, Git, Excel, Langchain , Llamaindex , YOLO  &amp; SEO</span></li>
-									<li class="d-flex"><span>Interest:</span> <span>Travelling , Swimming ,Carrom</span></li>
-									
+									<li class="d-flex"><span>Specialization:</span> <span>Large Language Models &amp; Neural Networks</span></li>
+									<li class="d-flex"><span>Education:</span> <span>Master's in AI at Monash University (2024-Present)</span></li>
+									<li class="d-flex"><span>Languages:</span> <span>English, Marathi, Hindi</span></li>
+									<li class="d-flex"><span>Core Expertise:</span> <span>LLMs, Deep Learning, NLP, Computer Vision, MLOps</span></li>
+									<li class="d-flex"><span>Tech Stack:</span> <span>Python, TensorFlow, PyTorch, LangChain, AWS, Docker, FastAPI</span></li>
+									<li class="d-flex"><span>Research Focus:</span> <span>Generative AI, RAG Systems, Neural Architecture Search</span></li>
+									<li class="d-flex"><span>Interests:</span> <span>AI Research, Open Source, Tech Innovation</span></li>
 								</ul>
 							</div>
 						</div>
 
 
-						<div class="counter-wrap ftco-animate d-flex mt-md-3">
-							<div class="text">
-								<p class="mb-4">
-									<span class="number" data-number="30">0</span> <span>+</span>
-									<span>&nbsp; Projects completed</span>
-								</p>
-								<p><a href="https://www.linkedin.com/in/vinayak-mane-637698143/" class="btn btn-primary py-3 px-3">LinkedIn</a></p>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -310,51 +964,42 @@
     	<div class="container">
     		<div class="row justify-content-center pb-5">
           <div class="col-md-10 heading-section text-center ftco-animate">
-          	<h1 class="big big-2">Resume</h1>
-            <h2 class="mb-4">Resume</h2>
+          	<h1 class="big big-2">Experience</h1>
+            <h2 class="mb-4">Professional Experience</h2>
             <!-- <p>Seasoned Senior Data Analyst with 5+ years of experience driving business strategies through data-driven insights. Proven expertise in data science, statistical analysis, machine learning algorithms and project management.</p> -->
           </div>
         </div>
 
-		<div class="row">
-			<h1 class="big-4">Experience</h1>
-			<div class="underline"></div>
-		</div>
-		<br>
 		
+		<div class="interactive-resume">
 		<div class="row">
 				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">JUNE 2023 - JAN 2024</span>
-						<h2>Python/ML integrated Engineer</h2>
-						<span class="position">BLUJAY ROBOTICS PVT. LTD.</span>
-						<!-- <p class="mt-4">Merkle, a leading CXM and media company with over 10K+ professionals globally. It's a part of Dentsu International.  -->
-							<ul>
-								<li>Led the development of a Python application for wirelessly controlling robotic systems</li>
-								<li>Implemented cutting-edge machine learning models, including YOLO, custom ANNs, and CNNs, for precise object
-									detection</li>
-								<li>Utilized Pyside2 as the GUI framework to ensure user-friendly interface design.
-								</li>
+					<div class="resume-card ftco-animate">
+						<span class="date" style="color: var(--ai-primary); font-weight: 600;">JUNE 2023 - JAN 2024</span>
+						<h2 class="holographic">Machine Learning Engineer</h2>
+						<span class="position" style="color: var(--ai-accent); font-size: 1.1rem;">BLUJAY ROBOTICS PVT. LTD.</span>
+						<ul style="margin-top: 20px;">
+							<li>🤖 Led development of AI-powered robotic control systems using Python</li>
+							<li>🧠 Implemented cutting-edge ML models: YOLO, custom ANNs, and CNNs for object detection</li>
+							<li>💻 Built user-friendly GUI using PySide2 framework</li>
+							<li>🚀 Optimized preprocessing pipelines and model export for production</li>
 							</ul>
-						</p>
 					</div>
-
 				</div>
 
 				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">NOV 2022 - MAY 2023</span>
-						<h2>Data Science Engineer</h2>
-						<span class="position">DELTAFOUR</span>
-						<!-- <p class="mt-4">iQuanti is a data-driven digital marketing analytics and solutions company, helps top 100 global brands.  -->
-							<ul>
-								<li>Led and Developed Python based PdM project from sratch using MCSA , Collected real time data from industrial Pump</li>
-								<li>Analyzed time series data, implemented LSTM for anomaly detection, and utilized Ensemble Algorithm for Fault classification</li>
-								<li>Used MLOPS and CI/CD architecture , deployed project on AWS EC2</li>
+					<div class="resume-card ftco-animate">
+						<span class="date" style="color: var(--ai-primary); font-weight: 600;">NOV 2022 - MAY 2023</span>
+						<h2 class="holographic">Data Science Engineer</h2>
+						<span class="position" style="color: var(--ai-accent); font-size: 1.1rem;">DELTAFOUR</span>
+						<ul style="margin-top: 20px;">
+							<li>⚡ Developed Python-based Predictive Maintenance (PdM) system from scratch</li>
+							<li>📊 Implemented LSTM networks for real-time anomaly detection</li>
+							<li>🔧 Utilized Ensemble Algorithms for fault classification</li>
+							<li>☁️ Built MLOps pipeline with CI/CD and deployed on AWS EC2</li>
 							</ul>
-						</p>
 					</div>
-
+				</div>
 				</div>
 			</div>
 
@@ -389,11 +1034,12 @@
 
     		<div class="row justify-content-center mt-5">
     			<div class="col-md-6 text-center ftco-animate">
-    				<p><a href="#" class="btn btn-primary py-4 px-5">Download CV</a></p>
+    				<p><a href="Resume.pdf" class="btn btn-primary py-4 px-5" download>Download CV</a></p>
     			</div>
     		</div>
     	</div>
     </section>
+
 
    
 
@@ -401,9 +1047,9 @@
       <div class="container">
         <div class="row justify-content-center mb-5 pb-5">
           <div class="col-md-7 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Projects</h1>
-            <h2 class="mb-4">Projects</h2>
-            <p>Below are the sample Artificial Projects.</p>
+            <h1 class="big big-2">AI Projects</h1>
+            <h2 class="mb-4">Innovative AI Solutions</h2>
+            <p>Cutting-edge projects showcasing the power of artificial intelligence</p>
           </div>
         </div>
         <div class="row d-flex">
@@ -412,10 +1058,12 @@
               <a href="https://github.com/Vinayakmane47/NASA-turbofan-ML-Project-AIOPS" class="block-20 zoom-effect" style="background-image: url('images/proj_1.jpeg');">
               </a>
               <div class="text mt-3 float-right d-block">
-
-                <h3 class="heading"><a href="https://github.com/Vinayakmane47/NASA-turbofan-ML-Project-AIOPS">NASA Turbofan RUL Prediction Using MLOPS Architecture</a></h3>
-                <p>Predicted remaining useful Life of Jet Engine Using Regression and Ensemble algorithms, Implemented CI-CD
-					(GitHub-actions), Docker, MLOPs and deployed using Flask and Heruku</p>
+                <h3 class="heading"><a href="https://github.com/Vinayakmane47/NASA-turbofan-ML-Project-AIOPS">AI-Powered Predictive Maintenance</a></h3>
+                <p><strong>Tech Stack:</strong> Python, TensorFlow, MLOps, Docker, AWS<br>
+                Built an intelligent system to predict remaining useful life of jet engines using advanced regression algorithms and ensemble methods. Implemented full MLOps pipeline with CI/CD, containerization, and cloud deployment.</p>
+                <div class="mt-2">
+                  <a href="https://github.com/Vinayakmane47/NASA-turbofan-ML-Project-AIOPS" class="ai-button btn-sm">View Code</a>
+                </div>
               </div>
             </div>
           </div>
@@ -424,9 +1072,12 @@
               <a href="https://github.com/Vinayakmane47/DogbreedImageClassification" class="block-20 zoom-effect" style="background-image: url('images/proj_2.jpeg');">
               </a>
               <div class="text mt-3 float-right d-block">
-
-                <h3 class="heading"><a href="https://github.com/Vinayakmane47/DogbreedImageClassification">Dog Breed classification using Computer vision</a></h3>
-                <p>Made an Image classification project by fine tuning ResNET, InceptionNET, MobileNET, and DenseNET.</p>
+                <h3 class="heading"><a href="https://github.com/Vinayakmane47/DogbreedImageClassification">Deep Learning Computer Vision</a></h3>
+                <p><strong>Tech Stack:</strong> TensorFlow, Keras, OpenCV, Transfer Learning<br>
+                Developed a sophisticated image classification system using state-of-the-art CNN architectures including ResNet, InceptionNet, MobileNet, and DenseNet. Achieved high accuracy through transfer learning and data augmentation techniques.</p>
+                <div class="mt-2">
+                  <a href="https://github.com/Vinayakmane47/DogbreedImageClassification" class="ai-button btn-sm">View Code</a>
+                </div>
               </div>
             </div>
           </div>
@@ -435,36 +1086,43 @@
               <a href="https://github.com/Vinayakmane47/duplicate_question_checker_NLP" class="block-20 zoom-effect" style="background-image: url('images/proj_3.jpeg');">
               </a>
               <div class="text mt-3 float-right d-block">
-
-                <h3 class="heading"><a href="https://github.com/Vinayakmane47/duplicate_question_checker_NLP">Question Similarity Checker</a></h3>
-                <p>Solved Quoras Duplicate Question pair checker problem using RandomForest, XGBoost with Glove and Bag of
-					Words Embedding. Built BERT and ROBERTa Encoders for solving the same problem</p>
+                <h3 class="heading"><a href="https://github.com/Vinayakmane47/duplicate_question_checker_NLP">NLP & Transformer Models</a></h3>
+                <p><strong>Tech Stack:</strong> BERT, RoBERTa, Transformers, Scikit-learn<br>
+                Solved Quora's duplicate question detection challenge using advanced NLP techniques. Implemented BERT and RoBERTa encoders alongside traditional ML approaches with GloVe embeddings and ensemble methods.</p>
+                <div class="mt-2">
+                  <a href="https://github.com/Vinayakmane47/duplicate_question_checker_NLP" class="ai-button btn-sm">View Code</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
 	<br>
-		<!-- added justify-content-center to center align the last two projects -->
 		<div class="row d-flex justify-content-center">  
 			<div class="col-md-4 d-flex ftco-animate">
 				<div class="blog-entry justify-content-end">
-				<a href="https://github.com/rishabhnmishra/sales_forecasting/tree/main" class="block-20 zoom-effect" style="background-image: url('images/proj_4.jpg');">
+				<a href="https://github.com/Vinayakmane47" class="block-20 zoom-effect" style="background-image: url('images/proj_4.jpg');">
 				</a>
 				<div class="text mt-3 float-right d-block">
-  
-				  <h3 class="heading"><a href="https://github.com/rishabhnmishra/sales_forecasting/tree/main">Sales Forecast- Time Series Forecasting</a></h3>
-				  <p>Used multiple machine learning models to forecast sales (retail store) and performed time series analysis.</p>
+				  <h3 class="heading"><a href="https://github.com/Vinayakmane47">Time Series Forecasting AI</a></h3>
+				  <p><strong>Tech Stack:</strong> LSTM, ARIMA, Prophet, Python<br>
+				  Developed advanced time series forecasting models for retail sales prediction. Implemented multiple ML algorithms including LSTM neural networks, ARIMA, and Facebook Prophet for accurate demand forecasting.</p>
+				  <div class="mt-2">
+					<a href="https://github.com/Vinayakmane47" class="ai-button btn-sm">View Code</a>
+				  </div>
 				</div>
 			  </div>
 			</div>
 			<div class="col-md-4 d-flex ftco-animate">
 				<div class="blog-entry justify-content-end">
-				<a href="https://github.com/rishabhnmishra/customer_segmentation/blob/main/Customer_Segmentation-final.ipynb" class="block-20 zoom-effect" style="background-image: url('images/proj_5.jpg');">
+				<a href="https://github.com/Vinayakmane47" class="block-20 zoom-effect" style="background-image: url('images/proj_5.jpg');">
 				</a>
 				<div class="text mt-3 float-right d-block">
-  
-				  <h3 class="heading"><a href="https://github.com/rishabhnmishra/customer_segmentation/blob/main/Customer_Segmentation-final.ipynb">Customer Segmentation using clustering model</a></h3>
-				  <p>Developed a ML model to give various recommendations of financial products &amp; services on target customer groups.</p>
+				  <h3 class="heading"><a href="https://github.com/Vinayakmane47">Unsupervised Learning & Clustering</a></h3>
+				  <p><strong>Tech Stack:</strong> K-Means, DBSCAN, PCA, Scikit-learn<br>
+				  Built intelligent customer segmentation system using unsupervised learning algorithms. Applied K-Means clustering, DBSCAN, and dimensionality reduction techniques to identify customer patterns and provide personalized recommendations.</p>
+				  <div class="mt-2">
+					<a href="https://github.com/Vinayakmane47" class="ai-button btn-sm">View Code</a>
+				  </div>
 				</div>
 			  </div>
 			</div>
@@ -477,34 +1135,34 @@
       <div class="container">
 		<div class="row d-md-flex align-items-center">
           <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
+            <div class="ai-counter">
               <div class="text">
-                <strong class="number" data-number="20">0</strong>
-                <span>Achievements</span>
+                <strong class="number" data-number="25">0</strong>
+                <span>AI Models Trained</span>
               </div>
             </div>
           </div>
           <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
+            <div class="ai-counter">
               <div class="text">
-                <strong class="number" data-number="30">0</strong>
-                <span>Projects</span>
+                <strong class="number" data-number="15">0</strong>
+                <span>ML Projects</span>
               </div>
             </div>
           </div>
           <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
+            <div class="ai-counter">
+              <div class="text">
+                <strong class="number" data-number="5">0</strong>
+                <span>Research Papers</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="ai-counter">
               <div class="text">
                 <strong class="number" data-number="1000">0</strong>
-                <span>Mentored Students</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="500">0</strong>
-                <span>Cups of coffee</span>
+                <span>Lines of AI Code</span>
               </div>
             </div>
           </div>
@@ -581,17 +1239,14 @@
 			<br>
 			<div class="row justify-content-center">
 				<div class="col-md-7 ftco-animate text-center">
-					<h2>Have a<span> Question?  </span> <a href="https://forms.gle/Fd2Nb2nYFXDTKcGF9" class="btn btn-primary py-3 px-5">Click Here</a> </h2>
+					<h2>Let's <span>Connect</span> <a href="mailto:vman0027@student.monash.edu" class="btn btn-primary py-3 px-5">Get In Touch</a> </h2>
 				</div>
 			</div>
 				<br>
 					<ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center mb-0">
-					  <li class="ftco-animate normal-txt">Find me on  </li>
-					  <!-- <li class="ftco-animate"><a href="https://www.youtube.com/@RishabhMishraOfficial"><span class="icon-youtube"></span></a></li> -->
-					  <li class="ftco-animate"><a href="https://www.linkedin.com/in/vinayak-mane-637698143/"><span class="icon-linkedin"></span></a></li>  
-					  <li class="ftco-animate"><a href="https://www.instagram.com/vinayak_4799/"><span class="icon-twitter"></span></a></li>
-					  <li class="ftco-animate"><a href="https://www.facebook.com/vinayak.mane.188"><span class="icon-facebook"></span></a></li>
-				      <li class="ftco-animate"><a href="https://www.instagram.com/vinayak_4799/"><span class="icon-instagram"></span></a></li>
+					  <li class="ftco-animate normal-txt">Connect with me  </li>
+					  <li class="ftco-animate"><a href="https://www.linkedin.com/in/vinayak-mane-637698143/" target="_blank" rel="noopener noreferrer"><span class="icon-linkedin"></span></a></li>  
+					  <li class="ftco-animate"><a href="https://github.com/Vinayakmane47" target="_blank" rel="noopener noreferrer"><span class="icon-github"></span></a></li>
 					</ul>
 				<br>
 		   </div>
@@ -633,6 +1288,467 @@
   <script src="js/scrollax.min.js"></script>
   
   <script src="js/main.js"></script>
+  
+  <!-- Advanced Creative JavaScript -->
+  <script>
+    // Matrix Digital Rain Effect
+    function createMatrixRain() {
+      const container = document.getElementById('matrixRain');
+      const columns = Math.floor(window.innerWidth / 20);
+      const matrixChars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+      
+      for (let i = 0; i < columns; i++) {
+        const column = document.createElement('div');
+        column.className = 'matrix-column';
+        column.style.left = i * 20 + 'px';
+        column.style.animationDuration = Math.random() * 3 + 2 + 's';
+        column.style.animationDelay = Math.random() * 2 + 's';
+        
+        // Add random characters
+        let text = '';
+        for (let j = 0; j < 20; j++) {
+          text += matrixChars[Math.floor(Math.random() * matrixChars.length)] + '<br>';
+        }
+        column.innerHTML = text;
+        container.appendChild(column);
+      }
+    }
+
+    // Advanced Particle System
+    function createParticleSystem() {
+      const container = document.getElementById('particleSystem');
+      
+      function createParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDuration = Math.random() * 5 + 3 + 's';
+        particle.style.animationDelay = Math.random() * 2 + 's';
+        container.appendChild(particle);
+        
+        // Remove particle after animation
+        setTimeout(() => {
+          if (particle.parentNode) {
+            particle.parentNode.removeChild(particle);
+          }
+        }, 8000);
+      }
+      
+      // Create particles continuously
+      setInterval(createParticle, 200);
+    }
+
+    // Neural Network Background Animation
+    function createNeuralNetwork() {
+      const container = document.getElementById('neuralNetwork');
+      const nodeCount = 50;
+      const connectionCount = 30;
+      
+      // Create nodes
+      for (let i = 0; i < nodeCount; i++) {
+        const node = document.createElement('div');
+        node.className = 'neural-node';
+        node.style.left = Math.random() * 100 + '%';
+        node.style.top = Math.random() * 100 + '%';
+        node.style.animationDelay = Math.random() * 2 + 's';
+        container.appendChild(node);
+      }
+      
+      // Create connections
+      for (let i = 0; i < connectionCount; i++) {
+        const connection = document.createElement('div');
+        connection.className = 'neural-connection';
+        connection.style.left = Math.random() * 100 + '%';
+        connection.style.top = Math.random() * 100 + '%';
+        connection.style.width = Math.random() * 200 + 50 + 'px';
+        connection.style.animationDelay = Math.random() * 3 + 's';
+        container.appendChild(connection);
+      }
+    }
+
+    // Advanced AI Chat Interface
+    let chatOpen = false;
+    const aiResponses = {
+      'hello': "Hello! I'm Vinayak's AI assistant. I can tell you about his AI projects, skills, and experience!",
+      'projects': "Vinayak has worked on amazing AI projects including NASA Turbofan RUL Prediction, Dog Breed Classification using Computer Vision, and NLP Question Similarity Detection using BERT and RoBERTa!",
+      'skills': "Vinayak specializes in Python, Deep Learning, Large Language Models, Neural Networks, NLP, Computer Vision, and MLOps. He's an expert in TensorFlow, PyTorch, and AWS!",
+      'experience': "Vinayak has 2+ years of experience as a Machine Learning Engineer at Blujay Robotics and Data Science Engineer at Deltafour. He's currently pursuing Master's in AI at Monash University!",
+      'education': "Vinayak is currently pursuing Master's in Artificial Intelligence at Monash University (2024-Present) and has a Bachelor's in Technology from College of Engineering, Pune (2018-2021)!",
+      'contact': "You can reach Vinayak at vman0027@student.monash.edu or connect with him on LinkedIn: https://www.linkedin.com/in/vinayak-mane-637698143/",
+      'github': "Check out Vinayak's amazing AI projects on GitHub: https://github.com/Vinayakmane47",
+      'ai': "Vinayak is passionate about AI and specializes in building intelligent systems. He works with Large Language Models, Neural Networks, and cutting-edge AI technologies!",
+      'default': "I can help you learn about Vinayak's AI projects, skills, experience, education, or contact information. Just ask me anything!"
+    };
+
+    function toggleChat() {
+      const chatInterface = document.getElementById('aiChatInterface');
+      chatOpen = !chatOpen;
+      
+      if (chatOpen) {
+        chatInterface.classList.add('active');
+      } else {
+        chatInterface.classList.remove('active');
+      }
+    }
+
+    function handleChatInput(event) {
+      if (event.key === 'Enter') {
+        const input = event.target;
+        const message = input.value.toLowerCase();
+        const chatMessages = document.getElementById('chatMessages');
+        
+        // Add user message
+        const userMessage = document.createElement('div');
+        userMessage.className = 'chat-message user';
+        userMessage.textContent = input.value;
+        chatMessages.appendChild(userMessage);
+        
+        // Generate AI response
+        let response = aiResponses.default;
+        for (const [key, value] of Object.entries(aiResponses)) {
+          if (message.includes(key)) {
+            response = value;
+            break;
+          }
+        }
+        
+        // Add AI response
+        setTimeout(() => {
+          const aiMessage = document.createElement('div');
+          aiMessage.className = 'chat-message';
+          aiMessage.textContent = response;
+          chatMessages.appendChild(aiMessage);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }, 500);
+        
+        input.value = '';
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+    }
+
+    // Mouse Interaction with Particles
+    function addMouseInteraction() {
+      document.addEventListener('mousemove', (e) => {
+        const particles = document.querySelectorAll('.particle');
+        particles.forEach(particle => {
+          const rect = particle.getBoundingClientRect();
+          const distance = Math.sqrt(
+            Math.pow(e.clientX - (rect.left + rect.width/2), 2) + 
+            Math.pow(e.clientY - (rect.top + rect.height/2), 2)
+          );
+          
+          if (distance < 100) {
+            const force = (100 - distance) / 100;
+            particle.style.transform = `translate(${force * 10}px, ${force * 10}px) scale(${1 + force * 0.5})`;
+          }
+        });
+      });
+    }
+
+
+    // Sound Wave Animation
+    function animateSoundWaves() {
+      const waveBars = document.querySelectorAll('.wave-bar');
+      waveBars.forEach((bar, index) => {
+        setInterval(() => {
+          const randomHeight = Math.random() * 30 + 10;
+          bar.style.height = randomHeight + 'px';
+        }, 100 + index * 50);
+      });
+    }
+
+    // Holographic Text Effect
+    function addHolographicEffect() {
+      const holographicElements = document.querySelectorAll('.holographic');
+      holographicElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+          element.style.animationDuration = '1s';
+        });
+        
+        element.addEventListener('mouseleave', () => {
+          element.style.animationDuration = '3s';
+        });
+      });
+    }
+
+    // Skill Orb Interaction
+    function addSkillOrbInteraction() {
+      const skillOrbs = document.querySelectorAll('.skill-orb');
+      skillOrbs.forEach(orb => {
+        orb.addEventListener('mouseenter', () => {
+          orb.style.transform = 'scale(1.1)';
+        });
+        
+        orb.addEventListener('mouseleave', () => {
+          orb.style.transform = 'scale(1)';
+        });
+        
+        orb.addEventListener('click', () => {
+          orb.style.transform = 'scale(1.2)';
+          setTimeout(() => {
+            orb.style.transform = 'scale(1)';
+          }, 200);
+        });
+      });
+    }
+
+
+    // Enhanced AI Typing Animation
+    const typingAnimationElement = document.getElementById('typing-animation');
+    const aiTypingTexts = [
+      'AI Engineer',
+      'Neural Network Architect',
+      'Machine Learning Researcher',
+      'Deep Learning Specialist',
+      'LLM Expert',
+      'Computer Vision Engineer'
+    ];
+
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeAIText() {
+      const currentText = aiTypingTexts[textIndex];
+      
+      if (isDeleting) {
+        typingAnimationElement.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typingAnimationElement.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let typeSpeed = isDeleting ? 50 : 100;
+
+      if (!isDeleting && charIndex === currentText.length) {
+        typeSpeed = 2000; // Pause at end
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % aiTypingTexts.length;
+        typeSpeed = 500; // Pause before starting new text
+      }
+
+      setTimeout(typeAIText, typeSpeed);
+    }
+
+    // AI Chatbot Interaction
+    const aiChatbot = document.getElementById('aiChatbot');
+    
+    aiChatbot.addEventListener('click', function() {
+      toggleChat();
+    });
+
+    // Scroll Animations
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.ftco-animate');
+      
+      elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.classList.add('animate');
+        }
+      });
+    }
+
+    // Enhanced Skill Bar Animation
+    function animateSkillBars() {
+      const skillBars = document.querySelectorAll('.progress-bar');
+      
+      skillBars.forEach((bar, index) => {
+        const width = bar.style.width;
+        bar.style.width = '0%';
+        
+        setTimeout(() => {
+          bar.style.width = width;
+        }, index * 200);
+      });
+    }
+
+    // Counter Animation
+    function animateCounters() {
+      const counters = document.querySelectorAll('.number');
+      
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-number'));
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          counter.textContent = Math.floor(current);
+        }, 16);
+      });
+    }
+
+    // AI Project Card Interactions
+    document.querySelectorAll('.blog-entry').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px)';
+        this.style.boxShadow = '0 20px 40px rgba(0, 212, 255, 0.3)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+        this.style.boxShadow = '0 5px 15px rgba(0, 212, 255, 0.1)';
+      });
+    });
+
+    // AI Button Ripple Effect
+    document.querySelectorAll('.ai-button').forEach(button => {
+      button.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
+
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Intersection Observer for Animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (entry.target.id === 'about-section') {
+            animateSkillBars();
+          }
+          if (entry.target.id === 'section-counter') {
+            animateCounters();
+          }
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    // Observe sections
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Initialize everything when page loads
+    window.addEventListener('load', function() {
+      createNeuralNetwork();
+      createMatrixRain();
+      createParticleSystem();
+      typeAIText();
+      animateOnScroll();
+      addMouseInteraction();
+      animateSoundWaves();
+      addHolographicEffect();
+      addSkillOrbInteraction();
+    });
+
+    // Scroll event listener
+    window.addEventListener('scroll', animateOnScroll);
+
+    // Resize handler for matrix rain
+    window.addEventListener('resize', function() {
+      const matrixRain = document.getElementById('matrixRain');
+      matrixRain.innerHTML = '';
+      createMatrixRain();
+    });
+
+    // Add keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+      // Press 'C' to toggle chat
+      if (e.key.toLowerCase() === 'c' && !chatOpen) {
+        toggleChat();
+      }
+      // Press 'Escape' to close chat
+      if (e.key === 'Escape' && chatOpen) {
+        toggleChat();
+      }
+    });
+
+    // Add click sound effect (optional)
+    function playClickSound() {
+      // Create a subtle click sound using Web Audio API
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+      
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      
+      oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+      oscillator.frequency.exponentialRampToValueAtTime(400, audioContext.currentTime + 0.1);
+      
+      gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+      
+      oscillator.start(audioContext.currentTime);
+      oscillator.stop(audioContext.currentTime + 0.1);
+    }
+
+    // Add click sounds to interactive elements
+    document.querySelectorAll('.ai-button, .skill-orb, .resume-card').forEach(element => {
+      element.addEventListener('click', playClickSound);
+    });
+
+    // Add CSS for ripple effect
+    const style = document.createElement('style');
+    style.textContent = `
+      .ai-button {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(0);
+        animation: ripple-animation 0.6s linear;
+        pointer-events: none;
+      }
+      
+      @keyframes ripple-animation {
+        to {
+          transform: scale(4);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
     
   </body>
 </html>
